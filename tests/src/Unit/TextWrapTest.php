@@ -66,5 +66,23 @@ class TextWrapTest extends TestCase {
     $this->assertEquals("ombros de", $ret[4]);
     $this->assertEquals("gigantes", $ret[5]);
   }
-
+  
+  /**
+	*Testa a quebra de palavras para palavras grandes.
+	*
+	*/
+	public function testForbigWords1() {
+	$ret = $this->resolucao->textWrap($this->baseString, 7);
+    $this->assertCount(10, $ret);
+    $this->assertEquals("Se vi", $ret[0]);
+    $this->assertEquals("mais", $ret[1]);
+    $this->assertEquals("longe", $ret[2]);
+    $this->assertEquals("foi por", $ret[3]);
+    $this->assertEquals("estar", $ret[4]);
+    $this->assertEquals("de pé", $ret[5]);
+    $this->assertEquals("sobre", $ret[6]);
+	$this->assertEquals("ombros", $ret[7]);
+	$this->assertEquals("de giga", $ret[8]);
+	$this->assertEquals("ntes", $ret[9]);
+  }
 }
